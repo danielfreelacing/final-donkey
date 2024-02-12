@@ -43,7 +43,7 @@ class DisplayObjectContainer extends DisplayObject {
     const childs = this.__childs;
 
     for (let i = 0, len = childs.length; i < len; i++) {
-      if (childs[i] == child) {
+      if (childs[i] === child) {
         this.removeChildAt(i);
         break;
       }

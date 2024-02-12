@@ -109,7 +109,7 @@ class Prop extends Sprite {
         break;
     }
 
-    if (this.name == "prop_spring01") {
+    if (this.name === "prop_spring01") {
       const anim = new Animation({
         image: ImageManager.get("prop_spring03"),
         frames: getPropFrames("prop_spring03"),

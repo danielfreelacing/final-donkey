@@ -182,7 +182,7 @@ class DonkeyJump extends Game {
    * @param {Stair Object} stair
    */
   __createProp(stair) {
-    if (random(1, 6) == 1) {
+    if (random(1, 6) === 1) {
       const prop = new Prop();
       prop.init();
       prop.x = random(stair.x, stair.x + 150 - prop.width);
@@ -251,7 +251,7 @@ class DonkeyJump extends Game {
         donkey.minTop = donkeyY;
         this.__stairControl();
       }
-    } else if (donkey.animName == "jump") {
+    } else if (donkey.animName === "jump") {
       if (donkey.y + donkey.height > viewport.y + 800) {
         donkey.dead();
       } else {
@@ -267,7 +267,7 @@ class DonkeyJump extends Game {
               stair.stepon(donkey);
             } else {
               const cloud = new Cloud({
-                x: donkey.x + (donkey.direction == "left" ? 45 : 35),
+                x: donkey.x + (donkey.direction === "left" ? 45 : 35),
                 y: stair.y - 16,
                 width: 64,
                 height: 16,
@@ -280,10 +280,10 @@ class DonkeyJump extends Game {
               cloud.init();
 
               const name = stair.name;
-              if (name == "stair_friable") {
+              if (name === "stair_friable") {
                 Audio.play("ogg_step_broken");
                 stair.anim.play();
-              } else if (name == "stair_moveable") {
+              } else if (name === "stair_moveable") {
                 stair.anim.gotoAndPlay(1);
               }
 
@@ -304,7 +304,7 @@ class DonkeyJump extends Game {
       return false;
     }
 
-    if (this.readyTime == 0) {
+    if (this.readyTime === 0) {
       this.ui.beingReadyVisible(true);
       Audio.play("ogg_321");
     } else if (this.readyTime > 3000) {

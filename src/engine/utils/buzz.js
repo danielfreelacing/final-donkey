@@ -408,8 +408,8 @@ export const buzz = {
         for (let i = 0; i < events.length; i++) {
           const namespace = events[i].idx.split(".");
           if (
-            events[i].idx == idx ||
-            (namespace[1] && namespace[1] == idx.replace(".", ""))
+            events[i].idx === idx ||
+            (namespace[1] && namespace[1] === idx.replace(".", ""))
           ) {
             this.sound.removeEventListener(type, events[i].func, true);
             delete events[i];
@@ -448,8 +448,8 @@ export const buzz = {
         for (let i = 0; i < events.length; i++) {
           const eventType = events[i].idx.split(".");
           if (
-            events[i].idx == idx ||
-            (eventType[0] && eventType[0] == idx.replace(".", ""))
+            events[i].idx === idx ||
+            (eventType[0] && eventType[0] === idx.replace(".", ""))
           ) {
             const evt = document.createEvent("HTMLEvents");
             evt.initEvent(eventType[0], false, true);
@@ -634,7 +634,7 @@ export const buzz = {
       soundArray = argsToArray(soundArray, arguments);
       for (let a = 0; a < soundArray.length; a++) {
         for (let i = 0; i < sounds.length; i++) {
-          if (sounds[i] == soundArray[a]) {
+          if (sounds[i] === soundArray[a]) {
             delete sounds[i];
             break;
           }
@@ -807,13 +807,13 @@ export const buzz = {
   },
   fromTimer: function (time) {
     const splits = time.toString().split(":");
-    if (splits && splits.length == 3) {
+    if (splits && splits.length === 3) {
       time =
         parseInt(splits[0], 10) * 3600 +
         parseInt(splits[1], 10) * 60 +
         parseInt(splits[2], 10);
     }
-    if (splits && splits.length == 2) {
+    if (splits && splits.length === 2) {
       time = parseInt(splits[0], 10) * 60 + parseInt(splits[1], 10);
     }
     return time;

@@ -130,7 +130,7 @@ class AStar {
     while ((length = open.length)) {
       node = this.__getMinNode();
 
-      if (node.I != GID) {
+      if (node.I !== GID) {
         nodes = this.__getNodes(node);
 
         for (i = 0, j = nodes.length; i < j; i++) {

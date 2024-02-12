@@ -61,7 +61,7 @@ class DisplayObject extends Component {
       context.scale(this.flipX ? -1 : 1, this.flipY ? -1 : 1);
     }
 
-    if (this.scaleX != 1 || this.scaleY != 1) {
+    if (this.scaleX !== 1 || this.scaleY !== 1) {
       context.scale(this.scaleX, this.scaleY);
     }
   }

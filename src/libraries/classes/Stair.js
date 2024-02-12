@@ -26,7 +26,7 @@ class Stair extends Sprite {
     ];
     const name = stairTypes[random(0, 6)];
 
-    if (name == "stair_moveable") {
+    if (name === "stair_moveable") {
       this.speedX = random(10, 20) / 100;
       if (random(0, 1)) {
         this.speedX = -this.speedX;
@@ -54,7 +54,7 @@ class Stair extends Sprite {
       this.speedX = -this.speedX;
     }
 
-    if (this.prop && this.lastX != 0) {
+    if (this.prop && this.lastX !== 0) {
       this.prop.x += this.x - this.lastX;
     }
 

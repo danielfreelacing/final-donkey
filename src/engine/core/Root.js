@@ -11,7 +11,7 @@ class Root {
     childClass.prototype.constructor = childClass;
     childClass.superclass = parentClass.prototype;
 
-    if (childClass.prototype.constructor == Object.prototype.constructor) {
+    if (childClass.prototype.constructor === Object.prototype.constructor) {
       childClass.prototype.constructor = parentClass;
     }
   }
@@ -39,7 +39,7 @@ class Root {
     }
 
     const value = obj.valueOf();
-    if (obj != value) {
+    if (obj !== value) {
       return new obj.constructor(value);
     }
 

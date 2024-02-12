@@ -6,7 +6,7 @@ class ScriptManager {
     const script = document.createElement("script");
     if (script.readyState) {
       script.onreadystatechange = function () {
-        if (script.readyState == "loaded" || script.readyState == "complete") {
+        if (script.readyState === "loaded" || script.readyState === "complete") {
           callback.call();
         }
       };

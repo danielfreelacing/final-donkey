@@ -27,7 +27,7 @@ class DOM {
   hasClass(element, className) {
     const names = element.className.split(/\s+/);
     for (let i = 0; i < names.length; i++) {
-      if (names[i] == className) {
+      if (names[i] === className) {
         return true;
       }
     }
@@ -45,7 +45,7 @@ class DOM {
       const names = element.className.split(/\s+/);
       const newClassName = [];
       for (let i = 0; i < names.length; i++) {
-        if (names[i] != className) {
+        if (names[i] !== className) {
           newClassName.push(names[i]);
         }
       }

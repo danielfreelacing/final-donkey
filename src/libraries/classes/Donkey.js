@@ -50,9 +50,9 @@ class Donkey extends Sprite {
    * @private
    */
   __borderCheck() {
-    if (this.direction == "left" && this.x < -64) {
+    if (this.direction === "left" && this.x < -64) {
       this.x = 416;
-    } else if (this.direction == "right" && this.x > 416) {
+    } else if (this.direction === "right" && this.x > 416) {
       this.x = -64;
     }
   }
@@ -67,7 +67,7 @@ class Donkey extends Sprite {
     }
 
     if (game.keyDownLeft) {
-      if (this.direction != "left") {
+      if (this.direction !== "left") {
         this.setAnim("run");
         this.flipX = true;
         this.speedX = -0.2;
@@ -76,7 +76,7 @@ class Donkey extends Sprite {
       this.__borderCheck();
       this.parent.change();
     } else if (game.keyDownRight) {
-      if (this.direction != "right") {
+      if (this.direction !== "right") {
         this.setAnim("run");
         this.flipX = false;
         this.speedX = 0.2;
@@ -85,7 +85,7 @@ class Donkey extends Sprite {
       this.__borderCheck();
       this.parent.change();
     } else {
-      if (this.direction != "front") {
+      if (this.direction !== "front") {
         this.setAnim("daiji");
         this.flipX = false;
         this.speedX = 0;
@@ -105,7 +105,7 @@ class Donkey extends Sprite {
       this.__superJumpHeight += this.lastY - this.y;
     }
 
-    if (this.animName != "superjump") {
+    if (this.animName !== "superjump") {
       Audio.play("ogg_super");
       this.setAnim("superjump");
       this.speedY = -0.8;
@@ -122,7 +122,7 @@ class Donkey extends Sprite {
   __jump() {
     const game = this.game;
 
-    if (this.animName != "jump") {
+    if (this.animName !== "jump") {
       Audio.play("ogg_jump");
       this.setAnim("jump");
       this.speedY = -1;
@@ -136,7 +136,7 @@ class Donkey extends Sprite {
     game.viewportMove();
   }
   jump() {
-    if (this.speedY != -1) {
+    if (this.speedY !== -1) {
       this.animName = "";
       this.__jump();
     }
@@ -155,7 +155,7 @@ class Donkey extends Sprite {
       this.__MJHeight += this.lastY - this.y;
     }
 
-    if (this.animName != "MJ") {
+    if (this.animName !== "MJ") {
       this.setAnim("MJ");
       this.speedY = -0.5;
       this.acceY = 0;
@@ -177,7 +177,7 @@ class Donkey extends Sprite {
       this.__glidingHeight += this.lastY - this.y;
     }
 
-    if (this.animName != "plan") {
+    if (this.animName !== "plan") {
       this.setAnim("plan");
       this.speedY = -0.5;
       this.acceY = 0;
@@ -204,7 +204,7 @@ class Donkey extends Sprite {
       this.__UFOHeight += this.lastY - this.y;
     }
 
-    if (this.animName != "UFO") {
+    if (this.animName !== "UFO") {
       this.setAnim("UFO");
       this.speedY = -0.5;
       this.acceY = 0;
@@ -228,7 +228,7 @@ class Donkey extends Sprite {
       this.__balloonHeight += this.lastY - this.y;
     }
 
-    if (this.animName != "qiqiu") {
+    if (this.animName !== "qiqiu") {
       this.setAnim("qiqiu");
       this.speedY = -0.5;
       this.acceY = 0;
@@ -285,7 +285,7 @@ class Donkey extends Sprite {
     const game = this.game;
 
     if (game.keyDownLeft) {
-      if (this.direction != "left") {
+      if (this.direction !== "left") {
         this.flipX = !!flipX;
         this.direction = "left";
       }
@@ -293,7 +293,7 @@ class Donkey extends Sprite {
       this.inertia = this.speedX;
       this.__borderCheck();
     } else if (game.keyDownRight) {
-      if (this.direction != "right") {
+      if (this.direction !== "right") {
         this.flipX = false;
         this.direction = "right";
       }
@@ -354,7 +354,7 @@ class Donkey extends Sprite {
     const notLoopAnims = ["daiji", "jump"];
     const len = notLoopAnims.length;
     for (let i = 0; i < len; i++) {
-      if (notLoopAnims[i] == animName) {
+      if (notLoopAnims[i] === animName) {
         anim.loop = false;
         break;
       }
