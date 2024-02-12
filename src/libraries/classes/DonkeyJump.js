@@ -263,10 +263,9 @@ class DonkeyJump extends Game {
         const len = stairs.length;
         for (let i = 0; i < len; i++) {
           const stair = stairs[i];
-
           if (stair && donkey.hitTest(stair)) {
             if (stair instanceof Prop) {
-              stair.stepon(donkey);
+              // stair.stepon(donkey);
             } else {
               const cloud = new Cloud({
                 x: donkey.x + (donkey.direction === "left" ? 45 : 35),
@@ -289,7 +288,7 @@ class DonkeyJump extends Game {
                 stair.anim.gotoAndPlay(1);
               }
 
-              donkey.jump();
+              // donkey.MJ();
             }
           }
         }
