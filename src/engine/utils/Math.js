@@ -4,7 +4,7 @@ const random = (min, max) => {
 
 const pointtoradian = Math.PI / 180;
 
-export default {
+export {
   random,
   pointtoradian,
 };
