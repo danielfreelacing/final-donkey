@@ -352,11 +352,6 @@ class Donkey extends Sprite {
       frames: getDonkeyFrames(animName),
     });
 
-    console.log("animName", animName)
-    console.log("ImageManager.get(animName)", ImageManager.get(animName))
-    console.log("getDonkeyFrames(animName)", getDonkeyFrames(animName))
-    console.log("anim", anim)
-
     const notLoopAnims = ["daiji", "jump"];
     const len = notLoopAnims.length;
     for (let i = 0; i < len; i++) {

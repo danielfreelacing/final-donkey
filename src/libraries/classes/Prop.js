@@ -4,9 +4,10 @@ import ImageManager from "../../engine/utils/ImageManager";
 import { random } from "../../engine/utils/Math";
 import { getPropFrames } from "../frames";
 import Sprite from "../../engine/component/Sprite";
+import Root from "../../engine/core/Root";
 
 class Prop extends Sprite {
-  constructor() {
+  constructor(cfg) {
     super();
     this.name = "";
 
@@ -14,6 +15,7 @@ class Prop extends Sprite {
      * @private
      */
     this.__isStepon = false;
+    Root.extend(this, cfg);
   }
   init() {
     const propsTypes = [

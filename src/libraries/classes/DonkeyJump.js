@@ -169,10 +169,12 @@ class DonkeyJump extends Game {
   __createDefaultStair() {
     this.stairLayer.destoryChilds();
     this.lastStairY = this.viewportDefault[1] + 100;
+    console.log("this.lastStairY", this.lastStairY);
     const stair = new Stair({
       y: this.lastStairY,
     });
 
+    console.log("stair", stair);
     stair.init();
     this.stairLayer.appendChild(stair);
     this.__createProp(stair);
@@ -273,7 +275,7 @@ class DonkeyJump extends Game {
                 height: 16,
               });
 
-              cloud.onupdate = cloud.ondestory = function () {
+              cloud.onupdate = cloud.ondestory = () => {
                 this.effectLayer.change();
               };
               this.effectLayer.appendChild(cloud);

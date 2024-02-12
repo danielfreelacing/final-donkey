@@ -1,14 +1,16 @@
 import Sprite from "../../engine/component/Sprite";
 import Animation from "../../engine/component/Animation";
 import ImageManager from "../../engine/utils/ImageManager";
+import Root from "../../engine/core/Root";
 import { random } from "../../engine/utils/Math";
 import { getStairFrames } from "../frames";
 
 class Stair extends Sprite {
-  constructor() {
+  constructor(cfg) {
     super();
     this.name = "";
     this.prop = null;
+    Root.extend(this, cfg);
   }
   init() {
     this.width = 256;
