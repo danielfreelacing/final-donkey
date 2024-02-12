@@ -48,7 +48,7 @@ class Root {
       if (targetClass) {
         o = new targetClass();
       } else {
-        o = my.clone(obj.constructor.prototype);
+        o = this.clone(obj.constructor.prototype);
       }
 
       for (let key in obj) {
@@ -75,8 +75,8 @@ class Root {
    * @param {Object} obj
    */
   clone(obj) {
-    my.__cloneFunc.prototype = obj;
-    return new my.__cloneFunc();
+    this.__cloneFunc.prototype = obj;
+    return new this.__cloneFunc();
   }
   /**
    * @private

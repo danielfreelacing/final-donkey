@@ -83,14 +83,13 @@ class Layer extends DisplayObjectContainer {
       vy = viewport.y / this.distance,
       vw = viewport.width,
       vh = viewport.height;
-    const cx = (cy = cw = ch = 0);
 
     for (let i = 0; i < len; i++) {
-      const child = childs[i];
-      cx = child.x;
-      cy = child.y;
-      cw = child.width;
-      ch = child.height;
+      const child = childs[i],
+        cx = child.x,
+        cy = child.y,
+        cw = child.width,
+        ch = child.height;
 
       if (
         Math.abs(cx + cw / 2 - (vx + vw / 2)) < (cw + vw) / 2 &&

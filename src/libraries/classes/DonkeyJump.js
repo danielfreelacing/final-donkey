@@ -109,21 +109,21 @@ class DonkeyJump extends Game {
       height: 3072,
     });
     this.skyLayer.appendChild(sky);
-    const hill = new my.Bitmap({
+    const hill = new Bitmap({
       image: ImageManager.get("hill"),
       width: 480,
       height: 603,
       y: this.viewportDefault[1] + (800 - 603) * this.hillLayer.distance,
     });
     this.hillLayer.appendChild(hill);
-    const hillnear = new my.Bitmap({
+    const hillnear = new Bitmap({
       image: ImageManager.get("hillnear"),
       width: 480,
       height: 613,
       y: this.viewportDefault[1] + (800 - 613) * this.hillNearLayer.distance,
     });
     this.hillNearLayer.appendChild(hillnear);
-    const floor = new my.Bitmap({
+    const floor = new Bitmap({
       image: ImageManager.get("floor"),
       width: 480,
       height: 584,
