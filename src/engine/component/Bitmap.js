@@ -1,14 +1,16 @@
 import DisplayObject from "./DisplayObject";
+import Root from "../core/Root";
 
 class Bitmap extends DisplayObject {
-  constructor() {
-    super();
+  constructor(cfg) {
+    super()
     this.image = null;
     this.repeat = false;
     /**
      * @private
      */
     this.__pattern = null;
+    Root.extend(this, cfg);
   }
   /**
    * @param {Context Object} context

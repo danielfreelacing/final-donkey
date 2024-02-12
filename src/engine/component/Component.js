@@ -1,7 +1,11 @@
+import Root from "../core/Root";
+
 class Component {
-  constructor() {
+  constructor(cfg) {
     this.initialized = false;
     this.parent = null;
+
+    Root.extend(this, cfg)
   }
   init() {
     this.initialized = true;

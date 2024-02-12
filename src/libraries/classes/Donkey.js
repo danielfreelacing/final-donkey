@@ -3,6 +3,7 @@ import Animation from "../../engine/component/Animation";
 import ImageManager from "../../engine/utils/ImageManager";
 import { getDonkeyFrames } from "../frames";
 import Root from "../../engine/core/Root";
+import Audio from "./Audio";
 
 class Donkey extends Sprite {
   constructor() {
@@ -350,6 +351,11 @@ class Donkey extends Sprite {
       image: ImageManager.get(animName),
       frames: getDonkeyFrames(animName),
     });
+
+    console.log("animName", animName)
+    console.log("ImageManager.get(animName)", ImageManager.get(animName))
+    console.log("getDonkeyFrames(animName)", getDonkeyFrames(animName))
+    console.log("anim", anim)
 
     const notLoopAnims = ["daiji", "jump"];
     const len = notLoopAnims.length;

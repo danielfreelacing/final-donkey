@@ -1,9 +1,11 @@
 import DisplayObjectContainer from "./DisplayObjectContainer";
 import DisplayObject from "./DisplayObject";
+import Root from "../core/Root";
 
 class Layer extends DisplayObjectContainer {
-  constructor() {
-    super();
+  constructor(cfg) {
+    super()
+
     this.viewport = null;
     this.distance = 1;
     /**
@@ -18,6 +20,7 @@ class Layer extends DisplayObjectContainer {
      * @private
      */
     this.__change = true;
+    Root.extend(this, cfg);
   }
   init() {
     const childs = this.__childs;

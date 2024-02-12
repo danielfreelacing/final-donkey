@@ -1,8 +1,10 @@
 import Component from "./Component";
+import Root from "../core/Root";
 
 class Viewport extends Component {
-  constructor() {
+  constructor(cfg) {
     super();
+
     this.x = 0;
     this.y = 0;
     this.width = 0;
@@ -15,6 +17,7 @@ class Viewport extends Component {
      * @private
      */
     this.__lastY = 0;
+    Root.extend(this, cfg);
   }
   /**
    * @param {Number} x

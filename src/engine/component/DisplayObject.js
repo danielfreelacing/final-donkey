@@ -1,8 +1,10 @@
 import Component from "./Component";
+import Root from "../core/Root";
 
 class DisplayObject extends Component {
-  constructor() {
-    super();
+  constructor(cfg) {
+    super()
+
     this.x = 0;
     this.y = 0;
     this.width = 0;
@@ -17,6 +19,7 @@ class DisplayObject extends Component {
      * read only
      */
     this.visible = true;
+    Root.extend(this, cfg);
   }
   show() {
     this.visible = true;

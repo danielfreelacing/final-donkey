@@ -1,8 +1,10 @@
 import DisplayObject from "./DisplayObject";
+import Root from "../core/Root";
 
 class Sprite extends DisplayObject {
-  constructor() {
+  constructor(cfg) {
     super();
+
     this.anim = null;
     this.speedX = 0;
     this.speedY = 0;
@@ -24,6 +26,7 @@ class Sprite extends DisplayObject {
      * read only
      */
     this.lastSpeedY = 0;
+    Root.extend(this, cfg);
   }
   /**
    * @private

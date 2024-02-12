@@ -15,30 +15,22 @@ class UI {
 
   __initBtnPause() {
     const btnPause = DOM.get("btnPause");
-    btnPause.onclick = function () {
-      this.onpause();
-    };
+    btnPause.onclick = () => this.onpause();
   }
 
   __initBtnResumeExit() {
     const btnResumeExit = DOM.get("btnResumeExit");
-    btnResumeExit.onclick = function () {
-      this.onresumeexit();
-    };
+    btnResumeExit.onclick = () => this.onresumeexit();
   }
 
   __initBtnResume() {
     const btnResume = DOM.get("btnResume");
-    btnResume.onclick = function () {
-      this.onresume();
-    };
+    btnResume.onclick = () => this.onresume();
   }
 
   __initBtnRetry() {
     const btnRetry = DOM.get("btnRetry");
-    btnRetry.onclick = function () {
-      this.onretry();
-    };
+    btnRetry.onclick = () => this.onretry();
   }
   init() {
     this.__initBtnPlay();

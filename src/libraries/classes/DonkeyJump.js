@@ -135,10 +135,10 @@ class DonkeyJump extends Game {
     const ui = new UI();
     ui.init();
 
-    ui.onretry = function () {
+    ui.onretry = () => {
       Audio.play("ogg_background");
 
-      this.toBody();
+      ui.toBody();
       this.stateInit();
       this.start();
     };

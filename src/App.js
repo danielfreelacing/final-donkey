@@ -137,7 +137,22 @@ function App() {
   return (
     <div id="donkeyJump">
       <div id="gameCover" className="block background">
+        <a id="btnSound" className="icon">
+          &nbsp;
+        </a>
+        <a id="btnCup" className="icon">
+          &nbsp;
+        </a>
+        <a id="btnScore" className="icon">
+          &nbsp;
+        </a>
         <a id="btnPlay" className="icon">
+          &nbsp;
+        </a>
+        <a id="btnMore" className="icon">
+          &nbsp;
+        </a>
+        <a id="btnShare" className="icon">
           &nbsp;
         </a>
         <span id="progressText"></span>
@@ -165,14 +180,30 @@ function App() {
           &nbsp;
         </div>
         <div id="panelResume" className="icon">
-          <a id="btnResumeExit">&nbsp;</a>
-          <a id="btnResume">&nbsp;</a>
+          <a id="btnResumeExit">
+            &nbsp;
+          </a>
+          <a id="btnResume">
+            &nbsp;
+          </a>
         </div>
       </div>
       <div id="gameOver" className="block background">
+        <a id="btnShare2" className="icon">
+          &nbsp;
+        </a>
         <span id="name"></span>
         <span id="score"></span>
+        <a id="btnScore2" className="icon">
+          &nbsp;
+        </a>
         <a id="btnRetry" className="icon">
+          &nbsp;
+        </a>
+        <a id="btnMore2" className="icon">
+          &nbsp;
+        </a>
+        <a id="btnCup2" className="icon">
           &nbsp;
         </a>
       </div>

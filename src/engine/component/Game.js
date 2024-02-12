@@ -2,8 +2,8 @@ import DisplayObjectContainer from "./DisplayObjectContainer";
 import Root from '../core/Root'
 
 class Game extends DisplayObjectContainer {
-  constructor() {
-    super();
+  constructor(cfg) {
+    super()
     this.viewport = null;
     /**
      * read only
@@ -25,6 +25,7 @@ class Game extends DisplayObjectContainer {
      * @private
      */
     this.__timeout = null;
+    Root.extend(this, cfg);
   }
   /**
    * @param {Number} fps

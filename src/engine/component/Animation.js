@@ -1,8 +1,10 @@
+import Root from "../core/Root";
 import Component from "./Component";
 
 class Animation extends Component {
-  constructor() {
+  constructor(cfg) {
     super();
+
     this.image = null;
     /**
      * @format {
@@ -31,6 +33,7 @@ class Animation extends Component {
      * @private
      */
     this.__framePlayedDuration = 0;
+    Root.extend(this, cfg);
   }
   /**
    * @private

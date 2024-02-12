@@ -1,9 +1,12 @@
 import DisplayObject from "./DisplayObject";
+import Root from "../core/Root";
 
 class DisplayObjectContainer extends DisplayObject {
-  constructor() {
-    super();
+  constructor(cfg) {
+    super()
+
     this.__childs = [];
+    Root.extend(this, cfg);
   }
   init() {
     const childs = this.__childs;
