@@ -3,8 +3,9 @@ import Animation from "../../engine/component/Animation";
 import ImageManager from "../../engine/utils/ImageManager";
 import { random } from "../../engine/utils/Math";
 import { getPropFrames } from "../frames";
+import Sprite from "../../engine/component/Sprite";
 
-class Prop {
+class Prop extends Sprite {
   constructor() {
     super();
     this.name = "";

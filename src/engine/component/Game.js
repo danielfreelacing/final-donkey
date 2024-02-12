@@ -1,4 +1,5 @@
 import DisplayObjectContainer from "./DisplayObjectContainer";
+import Root from '../core/Root'
 
 class Game extends DisplayObjectContainer {
   constructor() {
@@ -69,7 +70,7 @@ class Game extends DisplayObjectContainer {
    */
   __run() {
     const now = new Date().getTime();
-    this.__timeout = setTimeout(my.delegate(this.__run, this), this.__sleep);
+    this.__timeout = setTimeout(Root.delegate(this.__run, this), this.__sleep);
     this.update(now - this.__lastTime);
     this.clear();
     this.render();

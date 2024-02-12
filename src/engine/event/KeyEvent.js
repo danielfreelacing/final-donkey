@@ -1,15 +1,14 @@
 class KeyEvent {
-  constructor() {}
   static addListener() {
     document.onkeydown = function (e) {
-      const e = e || event;
-      const code = e.keyCode || e.which;
+      const ele = e || event;
+      const code = ele.keyCode || ele.which;
       KeyEvent.__keyDownMap[code] = true;
     };
 
     document.onkeyup = function (e) {
-      const e = e || event;
-      const code = e.keyCode || e.which;
+      const ele = e || event;
+      const code = ele.keyCode || ele.which;
       KeyEvent.__keyDownMap[code] = false;
     };
   }

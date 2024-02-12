@@ -1,3 +1,5 @@
+import { buzz } from "../../engine/utils/buzz";
+
 class Audio {
   constructor() {
     this.mute = false;

@@ -2,10 +2,7 @@ class ImageManager {
   /**
    * @private
    */
-  constructor() {
-    this.__loadList = {};
-  }
-
+  __loadList = {};
   /**
    * @private
    */
