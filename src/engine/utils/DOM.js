@@ -7,7 +7,7 @@ class DOM {
     if (element.currentStyle) {
       return element.currentStyle[name];
     } else {
-      var style = document.defaultView.getComputedStyle(element, null);
+      const style = document.defaultView.getComputedStyle(element, null);
       return style[name];
     }
   }
@@ -25,8 +25,8 @@ class DOM {
   }
 
   hasClass(element, className) {
-    var names = element.className.split(/\s+/);
-    for (var i = 0; i < names.length; i++) {
+    const names = element.className.split(/\s+/);
+    for (let i = 0; i < names.length; i++) {
       if (names[i] == className) {
         return true;
       }
@@ -42,9 +42,9 @@ class DOM {
 
   removeClass(element, className) {
     if (this.hasClass(element, className)) {
-      var names = element.className.split(/\s+/),
-        newClassName = [];
-      for (var i = 0; i < names.length; i++) {
+      const names = element.className.split(/\s+/);
+      const newClassName = [];
+      for (let i = 0; i < names.length; i++) {
         if (names[i] != className) {
           newClassName.push(names[i]);
         }

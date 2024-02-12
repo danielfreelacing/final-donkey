@@ -2,14 +2,14 @@ class KeyEvent {
   constructor() {}
   static addListener() {
     document.onkeydown = function (e) {
-      var e = e || event,
-        code = e.keyCode || e.which;
+      const e = e || event;
+      const code = e.keyCode || e.which;
       KeyEvent.__keyDownMap[code] = true;
     };
 
     document.onkeyup = function (e) {
-      var e = e || event,
-        code = e.keyCode || e.which;
+      const e = e || event;
+      const code = e.keyCode || e.which;
       KeyEvent.__keyDownMap[code] = false;
     };
   }
@@ -21,7 +21,7 @@ class KeyEvent {
    * @param {String} key
    */
   static check(key) {
-    var code = KeyEvent.__keyCodeMap[key];
+    const code = KeyEvent.__keyCodeMap[key];
     return !!KeyEvent.__keyDownMap[code];
   }
 }

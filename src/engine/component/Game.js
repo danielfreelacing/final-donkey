@@ -51,7 +51,7 @@ class Game extends DisplayObjectContainer {
     const childs = this.__childs;
     const len = childs.length;
 
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
       childs[i].render();
     }
     this.onrender();
