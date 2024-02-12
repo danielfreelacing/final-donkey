@@ -10,9 +10,7 @@ class UI {
 
   __initBtnPlay() {
     const btnPlay = DOM.get("btnPlay");
-    btnPlay.onclick = function () {
-      this.onplay();
-    };
+    btnPlay.onclick = () => this.onplay();
   }
 
   __initBtnPause() {

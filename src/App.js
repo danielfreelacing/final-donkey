@@ -19,7 +19,7 @@ function App() {
     }
 
     if (!buzz.isOGGSupported() && !buzz.isMP3Supported()) {
-      // DOM.remove(DOM.get("progressText"));
+      DOM.remove(DOM.get("progressText"));
       init();
     } else {
       loadAudioResources();
@@ -30,6 +30,7 @@ function App() {
     const res = getAudioRes();
     const len = res.length;
     const group = [];
+    console.log("len", len);
 
     for (let i = 0; i < len; i++) {
       const item = res[i];
@@ -48,10 +49,14 @@ function App() {
     let number = 1;
 
     buzzGroup.bind("loadeddata", function (e) {
-      DOM.get("progressText").innerHTML =
-        "Loading...(" + ~~((number / len) * 100) + "%)";
+      if (DOM.get("progressText")) {
+        DOM.get("progressText").innerHTML =
+          "Loading...(" + ~~((number / len) * 100) + "%)";
+      }
       if (number >= len) {
-        // DOM.remove(DOM.get("progressText"));
+        if (DOM.get("progressText")) {
+          DOM.remove(DOM.get("progressText"));
+        }
         init();
       } else {
         number++;
