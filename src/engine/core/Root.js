@@ -1,10 +1,10 @@
-class Root {
-  fn = new Function();
+const Root = {
+  fn: new Function(),
   /**
    * @param {Function} childClass
    * @param {Function} parentClass
    */
-  inherit(childClass, parentClass) {
+  inherit: (childClass, parentClass) => {
     const Constructor = new Function();
     Constructor.prototype = parentClass.prototype;
     childClass.prototype = new Constructor();
@@ -14,12 +14,12 @@ class Root {
     if (childClass.prototype.constructor === Object.prototype.constructor) {
       childClass.prototype.constructor = parentClass;
     }
-  }
+  },
   /**
    * @param {Object} obj
    * @param {Object} newProperties
    */
-  extend(obj, newProperties) {
+  extend: (obj, newProperties) => {
     for (let key in newProperties) {
       if (newProperties.hasOwnProperty(key)) {
         obj[key] = newProperties[key];
@@ -27,13 +27,13 @@ class Root {
     }
 
     return obj;
-  }
+  },
   /**
    * @param {Object} obj
    * @param {Function} targetClass
    * @param {Object} newProperties
    */
-  copy(obj, targetClass, newProperties) {
+  copy: (obj, targetClass, newProperties) => {
     if (typeof obj !== "object") {
       return obj;
     }
@@ -70,23 +70,23 @@ class Root {
     }
 
     return o;
-  }
+  },
   /**
    * @param {Object} obj
    */
-  clone(obj) {
+  clone: (obj) => {
     this.__cloneFunc.prototype = obj;
     return new this.__cloneFunc();
-  }
+  },
   /**
    * @private
    */
-  __cloneFunc() {}
+  __cloneFunc: () => {},
   /**
    * @param {Function} func
    * @param {Object} scope
    */
-  delegate(func, scope) {
+  delegate: function (func, scope) {
     scope = scope || window;
 
     if (arguments.length > 2) {
@@ -100,7 +100,7 @@ class Root {
         return func.call(scope);
       };
     }
-  }
-}
+  },
+};
 
 export default Root;
