@@ -2,6 +2,7 @@ import Sprite from "../../engine/component/Sprite";
 import Animation from "../../engine/component/Animation";
 import ImageManager from "../../engine/utils/ImageManager";
 import { getDonkeyFrames } from "../frames";
+import Root from "../../engine/core/Root";
 
 class Donkey extends Sprite {
   constructor() {
@@ -40,7 +41,7 @@ class Donkey extends Sprite {
      */
     this.__balloonHeight = 0;
     this.minTop = 0;
-    this.stateUpdate = my.fn;
+    this.stateUpdate = Root.fn;
     this.deadHeight = 1000;
     this.deadViewportFixed = false;
     this.inertia = 0;

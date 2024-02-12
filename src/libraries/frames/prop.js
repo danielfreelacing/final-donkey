@@ -1,4 +1,4 @@
-const getPropFrames = () => {
+const getPropFrames = (animName) => {
   const frames = {
     prop_spring01: [
       {

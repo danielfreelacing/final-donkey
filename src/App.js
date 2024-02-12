@@ -8,8 +8,6 @@ import { getAudioRes } from "./libraries/resources/audios";
 import { buzz } from "./engine/utils/buzz";
 
 function App() {
-  const imageResources = getImageRes();
-  ImageManager.load(imageResources, loadImageResources);
 
   const loadImageResources = (number) => {
     DOM.get("progressText").innerHTML =
@@ -125,7 +123,9 @@ function App() {
         };
   };
 
-  React.useEffect(() => {}, []);
+  const imageResources = getImageRes();
+  // ImageManager.load(imageResources, loadImageResources);
+  // React.useEffect(() => {}, []);
   return (
     <div id="donkeyJump">
       <div id="gameCover" className="block background">

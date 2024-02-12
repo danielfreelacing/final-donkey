@@ -1,14 +1,12 @@
 class KeyEvent {
   static addListener() {
     document.onkeydown = function (e) {
-      const ele = e || event;
-      const code = ele.keyCode || ele.which;
+      const code = e.keyCode || e.which;
       KeyEvent.__keyDownMap[code] = true;
     };
 
     document.onkeyup = function (e) {
-      const ele = e || event;
-      const code = ele.keyCode || ele.which;
+      const code = e.keyCode || e.which;
       KeyEvent.__keyDownMap[code] = false;
     };
   }
