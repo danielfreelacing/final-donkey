@@ -1,6 +1,7 @@
 import React from "react";
 import DOM from "./engine/utils/DOM";
 import ImageManager from "./engine/utils/ImageManager";
+import Audio from "./libraries/classes/Audio";
 import DonkeyJump from "./libraries/classes/DonkeyJump";
 import KeyEvent from "./engine/event/KeyEvent";
 import { getImageRes } from "./libraries/resources/images";
@@ -8,6 +9,7 @@ import { getAudioRes } from "./libraries/resources/audios";
 import { buzz } from "./engine/utils/buzz";
 
 function App() {
+  const [imageResources, setImageResources] = React.useState(getImageRes());
 
   const loadImageResources = (number) => {
     DOM.get("progressText").innerHTML =
@@ -17,7 +19,7 @@ function App() {
     }
 
     if (!buzz.isOGGSupported() && !buzz.isMP3Supported()) {
-      DOM.remove(DOM.get("progressText"));
+      // DOM.remove(DOM.get("progressText"));
       init();
     } else {
       loadAudioResources();
@@ -47,10 +49,9 @@ function App() {
 
     buzzGroup.bind("loadeddata", function (e) {
       DOM.get("progressText").innerHTML =
-        "正在加载音乐...(" + ~~((number / len) * 100) + "%)";
-
+        "Loading...(" + ~~((number / len) * 100) + "%)";
       if (number >= len) {
-        DOM.remove(DOM.get("progressText"));
+        // DOM.remove(DOM.get("progressText"));
         init();
       } else {
         number++;
@@ -59,7 +60,7 @@ function App() {
   };
 
   const init = () => {
-    Audio.play("ogg_background");
+    // Audio.play("ogg_background");
 
     const donkeyJump = new DonkeyJump();
     donkeyJump.setFPS(60);
@@ -123,9 +124,11 @@ function App() {
         };
   };
 
-  const imageResources = getImageRes();
-  // ImageManager.load(imageResources, loadImageResources);
-  // React.useEffect(() => {}, []);
+  React.useEffect(() => {
+    window.addEventListener("load", () => {
+      ImageManager.load(imageResources, loadImageResources);
+    });
+  }, []);
   return (
     <div id="donkeyJump">
       <div id="gameCover" className="block background">

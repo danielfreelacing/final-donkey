@@ -1,30 +1,29 @@
-class DOM {
-  get(id) {
+export const DOM = {
+  get: (id) => {
     return document.getElementById(id);
-  }
+  },
 
-  getStyleValue(element, name) {
+  getStyleValue: (element, name) => {
     if (element.currentStyle) {
       return element.currentStyle[name];
     } else {
       const style = document.defaultView.getComputedStyle(element, null);
       return style[name];
     }
-  }
+  },
 
-  hide(element) {
+  hide: (element) => {
     element.style.display = "none";
-  }
+  },
 
-  show(element) {
+  show: (element) => {
     element.style.display = "block";
-  }
+  },
 
-  remove(element) {
+  remove: (element) => {
     element.parentNode.removeChild(element);
-  }
-
-  hasClass(element, className) {
+  },
+  hasClass: (element, className) => {
     const names = element.className.split(/\s+/);
     for (let i = 0; i < names.length; i++) {
       if (names[i] === className) {
@@ -32,15 +31,15 @@ class DOM {
       }
     }
     return false;
-  }
+  },
 
-  addClass(element, className) {
+  addClass: (element, className) => {
     if (!this.hasClass(element, className)) {
       element.className += " " + className;
     }
-  }
+  },
 
-  removeClass(element, className) {
+  removeClass: (element, className) => {
     if (this.hasClass(element, className)) {
       const names = element.className.split(/\s+/);
       const newClassName = [];
@@ -51,7 +50,7 @@ class DOM {
       }
       element.className = newClassName.join(" ");
     }
-  }
-}
+  },
+};
 
 export default DOM;

@@ -382,8 +382,8 @@ export const buzz = {
           func.call(that, e);
         };
       for (let t = 0; t < types.length; t++) {
-        const type = types[t],
-          idx = type;
+        let type = types[t];
+        const idx = type;
         type = idx.split(".")[0];
 
         events.push({
