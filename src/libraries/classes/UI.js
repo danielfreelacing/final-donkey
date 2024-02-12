@@ -1,112 +1,116 @@
+import DOM from "../../engine/utils/DOM";
+
 class UI {
-    constructor() {
-        this.gameCover = my.DOM.get('gameCover');
-        this.gameBody = my.DOM.get('gameBody');
-        this.gameOver = my.DOM.get('gameOver');
-        this.number = my.DOM.get('number');
-    }
+  constructor() {
+    this.gameCover = DOM.get("gameCover");
+    this.gameBody = DOM.get("gameBody");
+    this.gameOver = DOM.get("gameOver");
+    this.number = DOM.get("number");
+  }
 
-    __initBtnPlay() {
-        var btnPlay = my.DOM.get('btnPlay'), self = this;
-        btnPlay.onclick = function () {
-            self.onplay();
-        };
-    }
+  __initBtnPlay() {
+    const btnPlay = DOM.get("btnPlay");
+    btnPlay.onclick = function () {
+      this.onplay();
+    };
+  }
 
-    __initBtnPause() {
-        var btnPause = my.DOM.get('btnPause'), self = this;
-        btnPause.onclick = function () {
-            self.onpause();
-        };
+  __initBtnPause() {
+    const btnPause = DOM.get("btnPause");
+    btnPause.onclick = function () {
+      this.onpause();
+    };
+  }
+
+  __initBtnResumeExit() {
+    const btnResumeExit = DOM.get("btnResumeExit");
+    btnResumeExit.onclick = function () {
+      this.onresumeexit();
+    };
+  }
+
+  __initBtnResume() {
+    const btnResume = DOM.get("btnResume");
+    btnResume.onclick = function () {
+      this.onresume();
+    };
+  }
+
+  __initBtnRetry() {
+    const btnRetry = DOM.get("btnRetry");
+    btnRetry.onclick = function () {
+      this.onretry();
+    };
+  }
+  init() {
+    this.__initBtnPlay();
+    this.__initBtnPause();
+    this.__initBtnResumeExit();
+    this.__initBtnRetry();
+  }
+
+  setNumber(number) {
+    const numberChar = number.toString().split("");
+    for (let i = 0; i < numberChar.length; i++) {
+      numberChar[i] = '<span class="number' + numberChar[i] + '"></span>';
     }
-    
-    __initBtnResumeExit() {
-        var btnResumeExit = my.DOM.get('btnResumeExit'), self = this;
-        btnResumeExit.onclick = function () {
-            self.onresumeexit();
-        };
+    this.number.innerHTML = numberChar.join("");
+  }
+
+  btnPauseVisible(state) {
+    if (state) {
+      DOM.show(DOM.get("btnPause"));
+    } else {
+      DOM.hide(DOM.get("btnPause"));
     }
-    
-    __initBtnResume() {
-        var btnResume = my.DOM.get('btnResume'), self = this;
-        btnResume.onclick = function () {
-            self.onresume();
-        };
+  }
+
+  panelResumeVisible(state) {
+    if (state) {
+      DOM.show(DOM.get("panelResume"));
+    } else {
+      DOM.hide(DOM.get("panelResume"));
     }
-    
-    __initBtnRetry() {
-        var btnRetry = my.DOM.get('btnRetry'), self = this;
-        btnRetry.onclick = function () {
-            self.onretry();
-        };
+  }
+
+  beingReadyVisible(state) {
+    if (state) {
+      DOM.show(DOM.get("beingReady"));
+    } else {
+      DOM.hide(DOM.get("beingReady"));
     }
-    init() {
-        this.__initBtnPlay();
-        this.__initBtnPause();
-        this.__initBtnResumeExit();
-        this.__initBtnRetry();
+  }
+
+  beingGoVisible(state) {
+    if (state) {
+      DOM.show(DOM.get("beingGo"));
+    } else {
+      DOM.hide(DOM.get("beingGo"));
     }
-    
-    setNumber(number) {
-        var numberChar = number.toString().split('');
-        for (var i = 0; i < numberChar.length; i++) {
-            numberChar[i] = '<span class="number' + numberChar[i] + '"></span>';
-        }
-        this.number.innerHTML = numberChar.join('');
-    }
-    
-    btnPauseVisible(state) {
-        if (state) {
-            my.DOM.show(my.DOM.get('btnPause'));
-        } else {
-            my.DOM.hide(my.DOM.get('btnPause'));
-        }
-    }
-    
-    panelResumeVisible(state) {
-        if (state) {
-            my.DOM.show(my.DOM.get('panelResume'));
-        } else {
-            my.DOM.hide(my.DOM.get('panelResume'));
-        }
-    }
-    
-    beingReadyVisible(state) {
-        if (state) {
-            my.DOM.show(my.DOM.get('beingReady'));
-        } else {
-            my.DOM.hide(my.DOM.get('beingReady'));
-        }
-    }
-    
-    beingGoVisible(state) {
-        if (state) {
-            my.DOM.show(my.DOM.get('beingGo'));
-        } else {
-            my.DOM.hide(my.DOM.get('beingGo'));
-        }
-    }
-    
-    updateResult(name, score) {
-        my.DOM.get('name').innerHTML = name || 'Tap here to';
-        my.DOM.get('score').innerHTML = score || 0;
-    }
-    
-    toCover() {
-        my.DOM.hide(this.gameBody);
-        my.DOM.hide(this.gameOver);
-        my.DOM.show(this.gameCover);
-    }
-    
-    toBody() {
-        my.DOM.hide(this.gameOver);
-        my.DOM.hide(this.gameCover);
-        my.DOM.show(this.gameBody);
-    }
-    
-    toOver() {
-        my.DOM.hide(this.gameCover);
-        my.DOM.hide(this.gameBody);
-        my.DOM.show(this.gameOver);
-    }
+  }
+
+  updateResult(name, score) {
+    DOM.get("name").innerHTML = name || "Tap here to";
+    DOM.get("score").innerHTML = score || 0;
+  }
+
+  toCover() {
+    DOM.hide(this.gameBody);
+    DOM.hide(this.gameOver);
+    DOM.show(this.gameCover);
+  }
+
+  toBody() {
+    DOM.hide(this.gameOver);
+    DOM.hide(this.gameCover);
+    DOM.show(this.gameBody);
+  }
+
+  toOver() {
+    DOM.hide(this.gameCover);
+    DOM.hide(this.gameBody);
+    DOM.show(this.gameOver);
+  }
 }
+
+export default UI;

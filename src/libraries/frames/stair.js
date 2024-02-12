@@ -92,3 +92,5 @@ const getStairFrames = (animName) => {
 
   return frames[animName];
 };
+
+export { getStairFrames };
