@@ -21,26 +21,6 @@ class Donkey extends Sprite {
      * @private
      */
     this.__superJumpHeight = 0;
-
-    /**
-     * @private
-     */
-    this.__MJHeight = 0;
-
-    /**
-     * @private
-     */
-    this.__glidingHeight = 0;
-
-    /**
-     * @private
-     */
-    this.__UFOHeight = 0;
-
-    /**
-     * @private
-     */
-    this.__balloonHeight = 0;
     this.minTop = 0;
     this.stateUpdate = Root.fn;
     this.deadHeight = 1000;
@@ -142,106 +122,6 @@ class Donkey extends Sprite {
       this.__jump();
     }
   }
-  /**
-   * MJ
-   */
-  MJ() {
-    const game = this.game;
-
-    if (this.__MJHeight > 1200) {
-      this.__MJHeight = 0;
-      this.stateUpdate = this.__jump;
-      return false;
-    } else {
-      this.__MJHeight += this.lastY - this.y;
-    }
-
-    if (this.animName !== "MJ") {
-      this.setAnim("MJ");
-      this.speedY = -0.5;
-      this.acceY = 0;
-      this.flipX = false;
-    }
-    this.__keyControl();
-
-    this.parent.change();
-    game.viewportMove();
-  }
-  gliding() {
-    const game = this.game;
-
-    if (this.__glidingHeight > 1200) {
-      this.__glidingHeight = 0;
-      this.stateUpdate = this.__jump;
-      return false;
-    } else {
-      this.__glidingHeight += this.lastY - this.y;
-    }
-
-    if (this.animName !== "plan") {
-      this.setAnim("plan");
-      this.speedY = -0.5;
-      this.acceY = 0;
-      this.flipX = false;
-      this.width = 256;
-      this.height = 256;
-    }
-    this.__keyControl();
-
-    this.parent.change();
-    game.viewportMove();
-  }
-  /**
-   * UFO
-   */
-  UFO() {
-    const game = this.game;
-
-    if (this.__UFOHeight > 1200) {
-      this.__UFOHeight = 0;
-      this.stateUpdate = this.__jump;
-      return false;
-    } else {
-      this.__UFOHeight += this.lastY - this.y;
-    }
-
-    if (this.animName !== "UFO") {
-      this.setAnim("UFO");
-      this.speedY = -0.5;
-      this.acceY = 0;
-      this.flipX = false;
-      this.width = 256;
-      this.height = 512;
-    }
-    this.__keyControl();
-
-    this.parent.change();
-    game.viewportMove();
-  }
-  balloon() {
-    const game = this.game;
-
-    if (this.__balloonHeight > 1200) {
-      this.__balloonHeight = 0;
-      this.stateUpdate = this.__jump;
-      return false;
-    } else {
-      this.__balloonHeight += this.lastY - this.y;
-    }
-
-    if (this.animName !== "qiqiu") {
-      this.setAnim("qiqiu");
-      this.speedY = -0.5;
-      this.acceY = 0;
-      this.flipX = false;
-      this.width = 128;
-      this.height = 128;
-    }
-    this.__keyControl();
-
-    this.parent.change();
-    game.viewportMove();
-  }
   dead() {
     Audio.pause("ogg_background");
     Audio.play("ogg_die");
@@ -326,10 +206,6 @@ class Donkey extends Sprite {
     this.setAnim("daiji");
     this.stateUpdate = this.__stateReady;
     this.__superJumpHeight = 0;
-    this.__MJHeight = 0;
-    this.__glidingHeight = 0;
-    this.__UFOHeight = 0;
-    this.__balloonHeight = 0;
     this.deadHeight = 1000;
     this.deadViewportFixed = false;
   }
