@@ -106,7 +106,7 @@ class Donkey extends Sprite {
     if (this.animName !== "jump") {
       Audio.play("ogg_jump");
       this.setAnim("jump");
-      this.speedY = -1;
+      this.speedY = 0;
       this.acceY = 1 / 600;
       this.width = 128;
       this.height = 128;
@@ -117,7 +117,7 @@ class Donkey extends Sprite {
     game.viewportMove();
   }
   jump() {
-    if (this.speedY !== -1) {
+    if (this.speedY !== 0) {
       this.animName = "";
       this.__jump();
     }
