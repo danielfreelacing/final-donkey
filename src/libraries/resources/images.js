@@ -33,24 +33,8 @@ const getImageRes = () => {
       src: "/images/frames/donkey/dead.png",
     },
     {
-      id: "effect_qiqiu",
-      src: "/images/frames/donkey/effect_qiqiu.png",
-    },
-    {
       id: "jump",
       src: "/images/frames/donkey/jump.png",
-    },
-    {
-      id: "MJ",
-      src: "/images/frames/donkey/MJ.png",
-    },
-    {
-      id: "plan",
-      src: "/images/frames/donkey/plan.png",
-    },
-    {
-      id: "qiqiu",
-      src: "/images/frames/donkey/qiqiu.png",
     },
     {
       id: "run",
@@ -59,10 +43,6 @@ const getImageRes = () => {
     {
       id: "superjump",
       src: "/images/frames/donkey/superjump.png",
-    },
-    {
-      id: "UFO",
-      src: "/images/frames/donkey/UFO.png",
     },
     {
       id: "stair_friable",

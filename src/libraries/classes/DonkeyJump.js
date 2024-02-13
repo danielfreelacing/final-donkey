@@ -8,7 +8,6 @@ import UI from "./UI";
 import Audio from "./Audio";
 import Stair from "./Stair";
 import Cloud from "./Cloud";
-import Prop from "./Prop";
 import { random } from "../../engine/utils/Math";
 
 class DonkeyJump extends Game {
@@ -169,29 +168,11 @@ class DonkeyJump extends Game {
   __createDefaultStair() {
     this.stairLayer.destoryChilds();
     this.lastStairY = this.viewportDefault[1] + 100;
-    console.log("this.lastStairY", this.lastStairY);
     const stair = new Stair({
       y: this.lastStairY,
     });
-
-    console.log("stair", stair);
     stair.init();
     this.stairLayer.appendChild(stair);
-    this.__createProp(stair);
-  }
-  /**
-   * @private
-   * @param {Stair Object} stair
-   */
-  __createProp(stair) {
-    if (random(1, 6) === 1) {
-      const prop = new Prop();
-      prop.init();
-      prop.x = random(stair.x, stair.x + 150 - prop.width);
-      prop.y = stair.y - prop.height;
-      stair.prop = prop;
-      this.stairLayer.appendChild(prop);
-    }
   }
   /**
    * @private
@@ -219,7 +200,6 @@ class DonkeyJump extends Game {
       });
       stair.init();
       this.stairLayer.appendChild(stair);
-      this.__createProp(stair);
     }
   }
   layerChnage() {
@@ -264,32 +244,28 @@ class DonkeyJump extends Game {
         for (let i = 0; i < len; i++) {
           const stair = stairs[i];
           if (stair && donkey.hitTest(stair)) {
-            if (stair instanceof Prop) {
-              // stair.stepon(donkey);
-            } else {
-              const cloud = new Cloud({
-                x: donkey.x + (donkey.direction === "left" ? 45 : 35),
-                y: stair.y - 16,
-                width: 64,
-                height: 16,
-              });
+            const cloud = new Cloud({
+              x: donkey.x + (donkey.direction === "left" ? 45 : 35),
+              y: stair.y - 16,
+              width: 64,
+              height: 16,
+            });
 
-              cloud.onupdate = cloud.ondestory = () => {
-                this.effectLayer.change();
-              };
-              this.effectLayer.appendChild(cloud);
-              cloud.init();
+            cloud.onupdate = cloud.ondestory = () => {
+              this.effectLayer.change();
+            };
+            this.effectLayer.appendChild(cloud);
+            cloud.init();
 
-              const name = stair.name;
-              if (name === "stair_friable") {
-                Audio.play("ogg_step_broken");
-                stair.anim.play();
-              } else if (name === "stair_moveable") {
-                stair.anim.gotoAndPlay(1);
-              }
-
-              // donkey.MJ();
+            const name = stair.name;
+            if (name === "stair_friable") {
+              Audio.play("ogg_step_broken");
+              stair.anim.play();
+            } else if (name === "stair_moveable") {
+              stair.anim.gotoAndPlay(1);
             }
+
+            donkey.jump();
           }
         }
       }
