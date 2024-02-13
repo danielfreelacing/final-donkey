@@ -19,14 +19,14 @@ class Stair extends Sprite {
 
     const stairTypes = [
       // "stair_friable",
-      "stair_moveable",
+      // "stair_moveable",
       "stair_stable_01",
       "stair_stable_02",
       "stair_stable_03",
       "stair_stable_04",
       "stair_stable_05",
     ];
-    const name = stairTypes[random(0, 5)];
+    const name = stairTypes[random(0, 4)];
 
     if (name === "stair_moveable") {
       this.speedX = random(10, 20) / 100;
