@@ -87,6 +87,12 @@ function App() {
       } else {
         donkeyJump.keyDownRight = false;
       }
+
+      if (KeyEvent.check("VK_UP") || KeyEvent.check("W")) {
+        donkeyJump.keyDownUp = true;
+      } else {
+        donkeyJump.keyDownUp = false;
+      }
     };
     donkeyJump.onstop = function () {
       KeyEvent.removeListener();
@@ -165,12 +171,8 @@ function App() {
           &nbsp;
         </div>
         <div id="panelResume" className="icon">
-          <a id="btnResumeExit">
-            &nbsp;
-          </a>
-          <a id="btnResume">
-            &nbsp;
-          </a>
+          <a id="btnResumeExit">&nbsp;</a>
+          <a id="btnResume">&nbsp;</a>
         </div>
       </div>
       <div id="gameOver" className="block background">

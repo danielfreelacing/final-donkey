@@ -27,6 +27,7 @@ class DonkeyJump extends Game {
     this.ui = null;
     this.keyDownLeft = false;
     this.keyDownRight = false;
+    this.keyDownUp = false;
     this.readyTime = 0;
     this.isGo = false;
     this.lastStairY = 0;

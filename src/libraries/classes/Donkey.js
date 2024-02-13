@@ -65,6 +65,11 @@ class Donkey extends Sprite {
       }
       this.__borderCheck();
       this.parent.change();
+    } else if (game.keyDownUp) {
+      if (this.direction !== "up") {
+        this.speedY = -1;
+      }
+      this.parent.change();
     } else {
       if (this.direction !== "front") {
         this.setAnim("daiji");
@@ -181,6 +186,10 @@ class Donkey extends Sprite {
       this.speedX = 0.25;
       this.inertia = this.speedX;
       this.__borderCheck();
+    } else if (game.keyDownUp) {
+      // if (this.direction !== "up") {
+        this.speedY = -1;
+      // }
     } else {
       if (this.inertia < 0) {
         this.inertia += 0.005;
