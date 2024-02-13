@@ -167,7 +167,7 @@ class DonkeyJump extends Game {
    */
   __createDefaultStair() {
     this.stairLayer.destoryChilds();
-    this.lastStairY = this.viewportDefault[1] + 100;
+    this.lastStairY = this.viewportDefault[1] + 400;
     const stair = new Stair({
       y: this.lastStairY,
     });
