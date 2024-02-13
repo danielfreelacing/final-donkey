@@ -73,10 +73,6 @@ const getImageRes = () => {
       src: "/images/frames/stair/stair_stable_05.png",
     },
     {
-      id: "props_super",
-      src: "/images/frames/props/props_super.png",
-    },
-    {
       id: "cloud",
       src: "/images/frames/effect/cloud.png",
     },
