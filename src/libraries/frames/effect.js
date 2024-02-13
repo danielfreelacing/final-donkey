@@ -17,7 +17,7 @@ const getEffectFrames = (animName) => {
         duration: 30,
       },
       {
-        x: 172,
+        x: 192,
         y: 0,
         duration: 30,
       },

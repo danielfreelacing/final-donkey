@@ -73,32 +73,8 @@ const getImageRes = () => {
       src: "/images/frames/stair/stair_stable_05.png",
     },
     {
-      id: "prop_spring01",
-      src: "/images/frames/props/prop_spring01.png",
-    },
-    {
-      id: "prop_spring03",
-      src: "/images/frames/props/prop_spring03.png",
-    },
-    {
-      id: "props_balloon",
-      src: "/images/frames/props/props_balloon.png",
-    },
-    {
-      id: "props_gliding01",
-      src: "/images/frames/props/props_gliding01.png",
-    },
-    {
-      id: "props_michael",
-      src: "/images/frames/props/props_michael.png",
-    },
-    {
       id: "props_super",
       src: "/images/frames/props/props_super.png",
-    },
-    {
-      id: "props_ufo",
-      src: "/images/frames/props/props_ufo.png",
     },
     {
       id: "cloud",
