@@ -171,8 +171,12 @@ function App() {
           &nbsp;
         </div>
         <div id="panelResume" className="icon">
-          <a id="btnResumeExit">&nbsp;</a>
-          <a id="btnResume">&nbsp;</a>
+          <a id="btnResumeExit">
+            &nbsp;
+          </a>
+          <a id="btnResume">
+            &nbsp;
+          </a>
         </div>
       </div>
       <div id="gameOver" className="block background">
