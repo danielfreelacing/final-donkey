@@ -20,7 +20,7 @@ class Donkey extends Sprite {
     /**
      * @private
      */
-    this.__superJumpHeight = 0;
+    // this.__superJumpHeight = 0;
     this.minTop = 0;
     this.stateUpdate = Root.fn;
     this.deadHeight = 1000;
@@ -43,10 +43,10 @@ class Donkey extends Sprite {
    */
   __stateReady(deltaTime) {
     const game = this.game;
-    if (game.ready(deltaTime)) {
-      this.stateUpdate = this.superJump;
-      return false;
-    }
+    // if (game.ready(deltaTime)) {
+    //   this.stateUpdate = this.jump;
+    //   return false;
+    // }
 
     if (game.keyDownLeft) {
       if (this.direction !== "left") {
@@ -66,6 +66,13 @@ class Donkey extends Sprite {
       }
       this.__borderCheck();
       this.parent.change();
+    } else if (game.keyDownUp) {
+      if (this.direction !== "up") {
+        this.setAnim("jump");
+        this.flipX = true;
+        // this.speedX = 0.2;
+        this.direction = "up";
+      }
     } else {
       if (this.direction !== "front") {
         this.setAnim("daiji");
@@ -76,34 +83,12 @@ class Donkey extends Sprite {
       }
     }
   }
-  superJump() {
-    const game = this.game;
-
-    if (this.__superJumpHeight > 1200) {
-      this.__superJumpHeight = 0;
-      this.stateUpdate = this.__jump;
-      return false;
-    } else {
-      this.__superJumpHeight += this.lastY - this.y;
-    }
-
-    if (this.animName !== "superjump") {
-      Audio.play("ogg_super");
-      this.setAnim("superjump");
-      this.speedY = -0.8;
-      this.acceY = 0;
-    }
-    this.__keyControl(true);
-
-    this.parent.change();
-    game.viewportMove();
-  }
   /**
    * @private
    */
   __jump() {
     const game = this.game;
-
+console.log('jump')
     if (this.animName !== "jump") {
       Audio.play("ogg_jump");
       this.setAnim("jump");
@@ -188,11 +173,11 @@ class Donkey extends Sprite {
     } else if (game.keyDownUp) {
       if (this.direction !== "up") {
         this.speedYy = -1;
+        this.direction = "up";
       }
       this.inertia = this.speedX;
       this.__borderCheck();
-    }
-    else {
+    } else {
       if (this.inertia < 0) {
         this.inertia += 0.005;
       } else if (this.inertia > 0) {
@@ -216,7 +201,7 @@ class Donkey extends Sprite {
     this.direction = "front";
     this.setAnim("daiji");
     this.stateUpdate = this.__stateReady;
-    this.__superJumpHeight = 0;
+    // this.__superJumpHeight = 0;
     this.deadHeight = 1000;
     this.deadViewportFixed = false;
   }

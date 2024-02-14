@@ -188,7 +188,7 @@ class DonkeyJump extends Game {
       const len = childs.length;
       for (let i = 0; i < len; i++) {
         const child = childs[i];
-        if (child && child.y > viewportBottom) {
+        if (child && child.y > this.viewportDefault[1]) {
           child.destory();
           i--;
         }
@@ -235,9 +235,9 @@ class DonkeyJump extends Game {
         this.__stairControl();
       }
     } else if (donkey.animName === "jump") {
-      if (donkey.y + donkey.height > viewport.y + 800) {
-        donkey.dead();
-      } else {
+      // if (donkey.y + donkey.height > viewport.y + 800) {
+      //   // donkey.dead();
+      // } else {
         const stairLayer = this.stairLayer;
         const stairs = stairLayer.getChilds();
 
@@ -269,7 +269,7 @@ class DonkeyJump extends Game {
             donkey.jump();
           }
         }
-      }
+      // }
     }
   }
   /**
@@ -313,7 +313,7 @@ class DonkeyJump extends Game {
   stateInit() {
     this.viewport.move(this.viewportDefault[0], this.viewportDefault[1], true);
     this.donkey.x = 176;
-    this.donkey.y = this.viewportDefault[1] + 530;
+    this.donkey.y = this.viewportDefault[1] + 800 - this.donkey.height;
     this.donkey.minTop = this.donkey.y;
     this.donkey.reset();
     this.readyTime = 0;
