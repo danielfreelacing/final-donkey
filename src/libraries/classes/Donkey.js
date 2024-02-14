@@ -26,7 +26,6 @@ class Donkey extends Sprite {
     this.deadHeight = 1000;
     this.deadViewportFixed = false;
     this.inertia = 0;
-    this.speedYy = -1;
   }
   /**
    * @private
@@ -90,7 +89,7 @@ class Donkey extends Sprite {
     if (this.animName !== "jump") {
       Audio.play("ogg_jump");
       this.setAnim("jump");
-      this.speedY = this.speedYy;
+      this.speedY = -1;
       this.acceY = 1 / 600;
       this.width = 128;
       this.height = 128;
@@ -99,10 +98,9 @@ class Donkey extends Sprite {
 
     this.parent.change();
     game.viewportMove();
-    this.speedYy = 0;
   }
   jump() {
-    if (this.speedY !== this.speedYy) {
+    if (this.speedY !== -1) {
       this.animName = "";
       this.__jump();
     }
@@ -154,7 +152,6 @@ class Donkey extends Sprite {
       if (this.direction !== "left") {
         this.flipX = !!flipX;
         this.direction = "left";
-        this.speedYy = 0;
       }
       this.speedX = -0.25;
       this.inertia = this.speedX;
@@ -163,15 +160,14 @@ class Donkey extends Sprite {
       if (this.direction !== "right") {
         this.flipX = false;
         this.direction = "right";
-        this.speedYy = 0;
       }
       this.speedX = 0.25;
       this.inertia = this.speedX;
       this.__borderCheck();
     } else if (game.keyDownUp) {
       if (this.direction !== "up") {
-        this.speedYy = -1;
         this.direction = "up";
+        this.speedY = -1;
       }
       this.inertia = this.speedX;
       this.__borderCheck();
