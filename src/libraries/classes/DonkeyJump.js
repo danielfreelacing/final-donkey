@@ -154,6 +154,7 @@ class DonkeyJump extends Game {
   }
   update(deltaTime) {
     this.stairLayer.change();
+    this.__stairControl()
     super.update(deltaTime);
   }
   /**
@@ -179,12 +180,10 @@ class DonkeyJump extends Game {
    * @private
    */
   __stairControl() {
-    const viewportY = this.viewport.y;
     const lastStairY = this.lastStairY;
     const space = random(200, 300);
-    if (lastStairY - viewportY > space) {
+    if (this.donkey.y - 800  - space <  lastStairY) {
       const childs = this.stairLayer.getChilds();
-      const viewportBottom = viewportY + 800;
       const len = childs.length;
       for (let i = 0; i < len; i++) {
         const child = childs[i];
@@ -232,7 +231,8 @@ class DonkeyJump extends Game {
         this.layerChnage();
 
         donkey.minTop = donkeyY;
-        this.__stairControl();
+        // this.__stairControl();
+        console.log('hello')
       }
     } else if (donkey.animName === "jump") {
       // if (donkey.y + donkey.height > viewport.y + 800) {
@@ -257,15 +257,6 @@ class DonkeyJump extends Game {
             };
             this.effectLayer.appendChild(cloud);
             cloud.init();
-
-            const name = stair.name;
-            if (name === "stair_friable") {
-              Audio.play("ogg_step_broken");
-              stair.anim.play();
-            } else if (name === "stair_moveable") {
-              stair.anim.gotoAndPlay(1);
-            }
-
             donkey.jump();
           }
         }

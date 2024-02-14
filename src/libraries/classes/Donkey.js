@@ -70,7 +70,6 @@ class Donkey extends Sprite {
       if (this.direction !== "up") {
         this.setAnim("jump");
         this.flipX = true;
-        // this.speedX = 0.2;
         this.direction = "up";
       }
     } else {
@@ -88,7 +87,6 @@ class Donkey extends Sprite {
    */
   __jump() {
     const game = this.game;
-console.log('jump')
     if (this.animName !== "jump") {
       Audio.play("ogg_jump");
       this.setAnim("jump");
