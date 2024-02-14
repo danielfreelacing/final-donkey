@@ -154,7 +154,7 @@ class DonkeyJump extends Game {
   }
   update(deltaTime) {
     this.stairLayer.change();
-    this.__stairControl()
+    this.__stairControl();
     super.update(deltaTime);
   }
   /**
@@ -180,19 +180,23 @@ class DonkeyJump extends Game {
    * @private
    */
   __stairControl() {
-    const lastStairY = this.lastStairY;
+    let lastStairY = this.lastStairY;
     const space = random(200, 300);
-    if (this.donkey.y - 800  - space <  lastStairY) {
-      const childs = this.stairLayer.getChilds();
-      const len = childs.length;
-      for (let i = 0; i < len; i++) {
-        const child = childs[i];
-        if (child && child.y > this.viewportDefault[1]) {
-          child.destory();
-          i--;
-        }
-      }
+    const childs = this.stairLayer.getChilds();
+    const lenBefore = childs.length;
 
+    for (let i = 0; i < lenBefore; i++) {
+      const child = childs[i];
+      if (child && child.y > this.viewport.y + 800) {
+        child.destory();
+        i--;
+      }
+    }
+
+    if (childs[childs.length - 1]) {
+      lastStairY = childs[childs.length - 1].y;
+    }
+    if (this.viewport.y < lastStairY) {
       this.lastStairY =
         lastStairY - (space + Math.max(~~(this.score / 500), 0));
       const stair = new Stair({
@@ -232,34 +236,34 @@ class DonkeyJump extends Game {
 
         donkey.minTop = donkeyY;
         // this.__stairControl();
-        console.log('hello')
+        console.log("hello");
       }
     } else if (donkey.animName === "jump") {
       // if (donkey.y + donkey.height > viewport.y + 800) {
       //   // donkey.dead();
       // } else {
-        const stairLayer = this.stairLayer;
-        const stairs = stairLayer.getChilds();
+      const stairLayer = this.stairLayer;
+      const stairs = stairLayer.getChilds();
 
-        const len = stairs.length;
-        for (let i = 0; i < len; i++) {
-          const stair = stairs[i];
-          if (stair && donkey.hitTest(stair)) {
-            const cloud = new Cloud({
-              x: donkey.x + (donkey.direction === "left" ? 45 : 35),
-              y: stair.y - 16,
-              width: 64,
-              height: 16,
-            });
+      const len = stairs.length;
+      for (let i = 0; i < len; i++) {
+        const stair = stairs[i];
+        if (stair && donkey.hitTest(stair)) {
+          const cloud = new Cloud({
+            x: donkey.x + (donkey.direction === "left" ? 45 : 35),
+            y: stair.y - 16,
+            width: 64,
+            height: 16,
+          });
 
-            cloud.onupdate = cloud.ondestory = () => {
-              this.effectLayer.change();
-            };
-            this.effectLayer.appendChild(cloud);
-            cloud.init();
-            donkey.jump();
-          }
+          cloud.onupdate = cloud.ondestory = () => {
+            this.effectLayer.change();
+          };
+          this.effectLayer.appendChild(cloud);
+          cloud.init();
+          donkey.jump();
         }
+      }
       // }
     }
   }
