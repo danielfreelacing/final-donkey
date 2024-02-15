@@ -239,12 +239,12 @@ class DonkeyJump extends Game {
         for (let i = 0; i < len; i++) {
           const stair = stairs[i];
           if (stair && donkey.hitTest(stair) && !this.decrease) {
-            if (this.life < 2) {
+            this.life = this.life - 1;
+            this.setLife(this.life);
+            if (this.life < 1) {
               donkey.dead();
-            } else {
-              this.life = this.life - 1;
             }
-            this.setLife(this.life)
+
             this.decrease = true;
             break;
           }
@@ -259,7 +259,7 @@ class DonkeyJump extends Game {
         }
       }
     } else if (donkey.animName === "jump") {
-      this.decrease = false
+      this.decrease = false;
       if (donkey.y + donkey.height > viewport.y + 800) {
         donkey.stop();
       } else {
