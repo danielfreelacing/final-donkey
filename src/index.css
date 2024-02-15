@@ -224,6 +224,7 @@ a, a:hover {
 }
 
 #life span {
+	transform: scale(2.5);
 	display: block;
 	width: 16px;
 	height: 24px;
