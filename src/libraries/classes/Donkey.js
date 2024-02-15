@@ -13,7 +13,7 @@ class Donkey extends Sprite {
     /**
      * @format left|front|right
      */
-    this.direction = "front";
+    this.direction = "";
 
     this.animName = "";
 
@@ -73,11 +73,10 @@ class Donkey extends Sprite {
       }
     } else {
       if (this.direction !== "front") {
-        this.setAnim("daiji");
         this.flipX = false;
         this.speedX = 0;
         this.direction = "front";
-        this.parent.change();
+        this.stop()
       }
     }
   }
@@ -215,7 +214,7 @@ class Donkey extends Sprite {
     this.speedY = 0;
     this.acceX = 0;
     this.acceY = 0;
-    this.direction = "front";
+    this.direction = "";
     this.setAnim("daiji");
     this.stateUpdate = this.__stateReady;
     // this.__superJumpHeight = 0;

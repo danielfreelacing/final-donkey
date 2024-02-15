@@ -4,6 +4,7 @@ const getDonkeyFrames = (animName) => {
       {
         x: 0,
         y: 0,
+        collRect: [[50, 93, 28, 15]],
       },
     ],
     run: [

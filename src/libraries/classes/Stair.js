@@ -41,7 +41,7 @@ class Stair extends Sprite {
    * @private
    */
   __moveableUpdate(deltaTime) {
-    this.speedY = 0.03;
+    this.speedY = 0.1;
     super.update(deltaTime);
   }
 }

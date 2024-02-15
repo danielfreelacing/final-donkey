@@ -33,6 +33,7 @@ class DonkeyJump extends Game {
     this.isGo = false;
     this.lastStairY = 0;
     this.decrease = false;
+    this.stopDecrease = false;
   }
   /**
    * @private
@@ -195,6 +196,7 @@ class DonkeyJump extends Game {
       const child = childs[i];
       if (child && child.y > this.viewport.y + 800) {
         child.destory();
+        this.stopDecrease = false
         i--;
       }
     }
@@ -290,6 +292,24 @@ class DonkeyJump extends Game {
             // donkey.acceY = 0;
             donkey.direction = "front";
             donkey.speedY = 0;
+          }
+        }
+      }
+    } else {
+      if (donkey.animName === "daiji") {
+        const stairLayer = this.stairLayer;
+        const stairs = stairLayer.getChilds();
+        const len = stairs.length;
+        for (let i = 0; i < len; i++) {
+          const stair = stairs[i];
+          if (stair && donkey.hitTest(stair) && !this.stopDecrease) {
+            this.life = this.life - 1;
+            this.setLife(this.life);
+            if (this.life < 1) {
+              donkey.dead();
+            }
+            this.stopDecrease = true;
+            break;
           }
         }
       }
