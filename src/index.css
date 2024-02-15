@@ -297,7 +297,7 @@ a, a:hover {
 	background-position: -357px -970px;
 }
 #name, #score {
-	display: block;
+	display: none;
 	position: absolute;
 	left: calc(50% - 72px);
 	top: 465px;
