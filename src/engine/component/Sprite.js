@@ -81,50 +81,6 @@ class Sprite extends DisplayObject {
     return result;
   }
   /**
-   * @param {Sprite Object} sprite2
-   */
-  deadTest(sprite2) {
-    let collRect1 = this.__getCollRect();
-    let collRect2 = sprite2.__getCollRect();
-    let result = false;
-    let coll1, coll2;
-
-    if (collRect1 && collRect2) {
-      const len1 = collRect1.length;
-      const len2 = collRect2.length;
-
-      for (let i1 = 0; i1 < len1; i1++) {
-        coll1 = collRect1[i1];
-
-        for (let i2 = 0; i2 < len2; i2++) {
-          coll2 = collRect2[i2];
-
-          if (
-            Math.abs(
-              this.x +
-                coll1[0] +
-                coll1[2] / 2 -
-                (sprite2.x + coll2[0] + coll2[2] / 2)
-            ) <
-              (coll1[2] + coll2[2]) / 2 &&
-            Math.abs(
-              this.y +
-                coll1[1] +
-                coll1[3] / 2 -
-                (sprite2.y + coll2[1] + coll2[3] / 2)
-            ) <
-              (coll1[3] + coll2[3]) / 2
-          ) {
-            result = true;
-            break;
-          }
-        }
-      }
-    }
-    sprite2 = collRect1 = collRect2 = coll1 = coll2 = null;
-    return result;
-  }
-  /**
    * @param {Number} deltaTime
    */
   update(deltaTime) {

@@ -6,6 +6,7 @@ class UI {
     this.gameBody = DOM.get("gameBody");
     this.gameOver = DOM.get("gameOver");
     this.number = DOM.get("number");
+    this.life = DOM.get("life");
   }
 
   __initBtnPlay() {
@@ -45,6 +46,10 @@ class UI {
       numberChar[i] = '<span class="number' + numberChar[i] + '"></span>';
     }
     this.number.innerHTML = numberChar.join("");
+  }
+
+  setLife(life) {
+    this.life.innerHTML = `<span class="number${life}" ></span>`;
   }
 
   btnPauseVisible(state) {

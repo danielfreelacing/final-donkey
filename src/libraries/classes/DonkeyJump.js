@@ -24,6 +24,7 @@ class DonkeyJump extends Game {
     this.donkey = null;
     this.viewportDefault = [0, 45440];
     this.score = 0;
+    this.life = 3;
     this.ui = null;
     this.keyDownLeft = false;
     this.keyDownRight = false;
@@ -31,6 +32,7 @@ class DonkeyJump extends Game {
     this.readyTime = 0;
     this.isGo = false;
     this.lastStairY = 0;
+    this.decrease = false;
   }
   /**
    * @private
@@ -164,6 +166,10 @@ class DonkeyJump extends Game {
     this.score = score;
     this.ui.setNumber(score);
   }
+  setLife(life) {
+    this.life = life;
+    this.ui.setLife(life);
+  }
   /**
    * @private
    */
@@ -227,18 +233,23 @@ class DonkeyJump extends Game {
 
     if (donkeyY < donkey.lastY) {
       if (donkeyY < donkey.minTop) {
-        let isDead = false;
         const stairLayer = this.stairLayer;
         const stairs = stairLayer.getChilds();
         const len = stairs.length;
         for (let i = 0; i < len; i++) {
           const stair = stairs[i];
-          if (stair && donkey.deadTest(stair)) {
-            donkey.dead();
-            isDead = true;
+          if (stair && donkey.hitTest(stair) && !this.decrease) {
+            if (this.life < 2) {
+              donkey.dead();
+            } else {
+              this.life = this.life - 1;
+            }
+            this.setLife(this.life)
+            this.decrease = true;
+            break;
           }
         }
-        if (!isDead) {
+        if (!this.decrease) {
           if (donkeyY < 45776) {
             viewport.move(0, donkeyY - 336, true);
           }
@@ -248,6 +259,7 @@ class DonkeyJump extends Game {
         }
       }
     } else if (donkey.animName === "jump") {
+      this.decrease = false
       if (donkey.y + donkey.height > viewport.y + 800) {
         donkey.stop();
       } else {
@@ -257,7 +269,7 @@ class DonkeyJump extends Game {
         const len = stairs.length;
         for (let i = 0; i < len; i++) {
           const stair = stairs[i];
-          if (stair && donkey.deadTest(stair)) {
+          if (stair && donkey.hitTest(stair)) {
             const cloud = new Cloud({
               x: donkey.x + (donkey.direction === "left" ? 45 : 35),
               y: stair.y - 16,
@@ -324,6 +336,7 @@ class DonkeyJump extends Game {
     this.readyTime = 0;
     this.isGo = false;
     this.setScore(0);
+    this.setLife(3);
     this.__createDefaultStair();
     this.skyLayer.change();
     this.hillLayer.change();

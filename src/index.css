@@ -181,16 +181,16 @@ a, a:hover {
 	float: left;
 	margin: 30px 3px 0px 0px;
 }
-#number .number0 {
+#number .number0, #life .number0 {
 	background-position: -8px -880px;
 }
-#number .number1 {
+#number .number1, #life .number1 {
 	background-position: -26px -880px;
 }
-#number .number2 {
+#number .number2, #life .number2 {
 	background-position: -44px -880px;
 }
-#number .number3 {
+#number .number3, #life .number3 {
 	background-position: -62px -880px;
 }
 #number .number4 {
@@ -210,6 +210,26 @@ a, a:hover {
 }
 #number .number9 {
 	background-position: -170px -880px;
+}
+#life {
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	width: 48px;
+	padding-left: 66px;
+	height: 128px;
+	background-position: -21px -749px;
+}
+
+#life span {
+	display: block;
+	width: 16px;
+	height: 24px;
+	background-image: url(/public/images/system/icon.png);
+	background-repeat: no-repeat;
+		background-position: -8px -880px;
+	float: left;
+	margin: 30px 3px 0px 0px;
 }
 #panelResume {
 	position: absolute;
