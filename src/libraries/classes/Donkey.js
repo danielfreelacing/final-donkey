@@ -134,7 +134,7 @@ class Donkey extends Sprite {
     this.stateUpdate = this.__dead;
     this.setAnim("dead");
     this.speedX = 0;
-    this.speedY = 0.15;
+    this.speedY = 0.0;
     this.acceX = 0;
     this.acceY = 1 / 1000;
     this.flipX = false;
@@ -152,7 +152,7 @@ class Donkey extends Sprite {
       if (this.deadViewportFixed) {
         //
       } else if (this.y >= viewport.y + 400) {
-        viewport.move(0, diffY * 2);
+        // viewport.move(0, diffY * 2);
         game.layerChnage();
       } else {
         this.deadViewportFixed = true;
