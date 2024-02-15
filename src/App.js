@@ -150,13 +150,13 @@ function App() {
       </div>
       <div id="gameBody" className="block">
         <div id="gameCanvas" className="block">
-          <canvas width="480" height="800" id="canvasSkyLayer"></canvas>
-          <canvas width="480" height="800" id="canvasHillLayer"></canvas>
-          <canvas width="480" height="800" id="canvasHillNearLayer"></canvas>
-          <canvas width="480" height="800" id="canvasFloorLayer"></canvas>
-          <canvas width="480" height="800" id="canvasStairLayer"></canvas>
-          <canvas width="480" height="800" id="canvasDonkeyLayer"></canvas>
-          <canvas width="480" height="800" id="canvasEffectLayer"></canvas>
+          <canvas width="1440" height="800" id="canvasSkyLayer"></canvas>
+          <canvas width="1440" height="800" id="canvasHillLayer"></canvas>
+          <canvas width="1440" height="800" id="canvasHillNearLayer"></canvas>
+          <canvas width="1440" height="800" id="canvasFloorLayer"></canvas>
+          <canvas width="1440" height="800" id="canvasStairLayer"></canvas>
+          <canvas width="1440" height="800" id="canvasDonkeyLayer"></canvas>
+          <canvas width="1440" height="800" id="canvasEffectLayer"></canvas>
         </div>
         <div id="numberAndPause" className="block">
           <div id="number" className="icon"></div>

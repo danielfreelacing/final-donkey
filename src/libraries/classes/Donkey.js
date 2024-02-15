@@ -32,8 +32,8 @@ class Donkey extends Sprite {
    */
   __borderCheck() {
     if (this.direction === "left" && this.x < -64) {
-      this.x = 416;
-    } else if (this.direction === "right" && this.x > 416) {
+      this.x = 1376;
+    } else if (this.direction === "right" && this.x > 1376) {
       this.x = -64;
     }
   }

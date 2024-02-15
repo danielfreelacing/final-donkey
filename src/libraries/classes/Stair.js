@@ -14,7 +14,7 @@ class Stair extends Sprite {
   init() {
     this.width = 256;
     this.height = 128;
-    this.x = random(10, 313);
+    this.x = random(10, 1273);
 
     const stairTypes = [
       "stair_stable_01",

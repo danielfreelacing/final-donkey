@@ -40,7 +40,7 @@ class DonkeyJump extends Game {
    */
   __createLayers() {
     const viewport = new Viewport({
-      width: 480,
+      width: 1440,
       height: 800,
     });
 
@@ -108,28 +108,28 @@ class DonkeyJump extends Game {
   __createScene() {
     const sky = new Bitmap({
       image: ImageManager.get("sky"),
-      width: 480,
-      height: 3072,
+      width: 1440,
+      height: 6144,
     });
     this.skyLayer.appendChild(sky);
     const hill = new Bitmap({
       image: ImageManager.get("hill"),
-      width: 480,
-      height: 603,
+      width: 1440,
+      height: 1206,
       y: this.viewportDefault[1] + (800 - 603) * this.hillLayer.distance,
     });
     this.hillLayer.appendChild(hill);
     const hillnear = new Bitmap({
       image: ImageManager.get("hillnear"),
-      width: 480,
-      height: 613,
+      width: 1440,
+      height: 1226,
       y: this.viewportDefault[1] + (800 - 613) * this.hillNearLayer.distance,
     });
     this.hillNearLayer.appendChild(hillnear);
     const floor = new Bitmap({
       image: ImageManager.get("floor"),
-      width: 480,
-      height: 584,
+      width: 1440,
+      height: 1168,
       y: this.viewportDefault[1] + (800 - 584) * this.floorLayer.distance,
     });
     this.floorLayer.appendChild(floor);
@@ -188,7 +188,7 @@ class DonkeyJump extends Game {
    */
   __stairControl() {
     let lastStairY = this.lastStairY;
-    const space = random(200, 300);
+    const space = random(50, 60);
     const childs = this.stairLayer.getChilds();
     const lenBefore = childs.length;
 

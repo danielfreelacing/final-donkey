@@ -29,10 +29,10 @@ class Bitmap extends DisplayObject {
         0,
         this.width,
         this.height,
-        0,
-        0,
-        this.width,
-        this.height
+        // 0,
+        // 0,
+        // this.width,
+        // this.height
       );
     }
     super.draw();
