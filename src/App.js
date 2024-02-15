@@ -177,8 +177,10 @@ function App() {
         </div>
       </div>
       <div id="gameOver" className="block background">
-        <span id="name"></span>
-        <span id="score"></span>
+        <div className="flex items-center gap-1">
+          <span id="name"></span>
+          <span id="score"></span>
+        </div>
         <a id="btnRetry" className="icon">
           &nbsp;
         </a>

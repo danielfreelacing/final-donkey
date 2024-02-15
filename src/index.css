@@ -307,7 +307,8 @@ a, a:hover {
 	color: #ffb34a;
 }
 #score {
-	top: 498px;
+	top: 465px;
+	left: calc(50% + 4px);;
 }
 #btnScore2 {
 	display: block;
@@ -357,4 +358,13 @@ a, a:hover {
 }
 #btnCup2:hover {
 	background-position: -390px -1707px;
+}
+.flex {
+	display: flex;
+}
+.items-center {
+	align-items: center;
+}
+.gap-1 {
+	gap: 4px;
 }

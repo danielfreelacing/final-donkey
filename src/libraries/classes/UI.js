@@ -85,7 +85,7 @@ class UI {
   }
 
   updateResult(name, score) {
-    DOM.get("name").innerHTML = name || "Tap here to";
+    DOM.get("name").innerHTML = name || "Score:";
     DOM.get("score").innerHTML = score || 0;
   }
 
