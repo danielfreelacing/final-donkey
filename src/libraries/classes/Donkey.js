@@ -69,7 +69,7 @@ class Donkey extends Sprite {
       if (this.direction !== "up") {
         this.flipX = true;
         this.direction = "up";
-        this.jump()
+        this.jump();
       }
     } else {
       if (this.direction !== "front") {
@@ -84,7 +84,7 @@ class Donkey extends Sprite {
   /**
    * @private
    */
-  __stop () {
+  __stop() {
     const game = this.game;
     if (this.animName !== "daiji") {
       this.setAnim("daiji");
@@ -94,7 +94,8 @@ class Donkey extends Sprite {
       this.speedY = 0;
       this.acceX = 0;
       this.acceY = 0;
-      this.y = this.game.viewport.y + 800 - this.height
+      this.direction = "front";
+      this.y = this.game.viewport.y + 800 - this.height;
       this.flipX = false;
     }
     this.__keyControl(true);
@@ -102,8 +103,8 @@ class Donkey extends Sprite {
     this.parent.change();
     game.viewportMove();
   }
-  stop () {
-    this.animName = ""
+  stop() {
+    this.animName = "";
     this.stateUpdate = this.__stop;
   }
 
@@ -125,7 +126,7 @@ class Donkey extends Sprite {
   jump() {
     if (this.speedY !== -1) {
       this.animName = "";
-      this.stateUpdate = this.__jump
+      this.stateUpdate = this.__jump;
     }
   }
   dead() {
@@ -189,9 +190,9 @@ class Donkey extends Sprite {
       this.__borderCheck();
     } else if (game.keyDownUp) {
       if (this.direction !== "up") {
-        this.flipX = true
+        this.flipX = true;
         this.direction = "up";
-        this.jump()
+        this.jump();
       }
     } else {
       if (this.inertia < 0) {

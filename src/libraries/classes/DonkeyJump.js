@@ -282,8 +282,14 @@ class DonkeyJump extends Game {
             };
             this.effectLayer.appendChild(cloud);
             cloud.init();
-            donkey.speedY = 0;
+
+            donkey.width = 128;
+            donkey.height = 128;
+            donkey.speedX = 0;
+            donkey.acceX = 0;
+            // donkey.acceY = 0;
             donkey.direction = "front";
+            donkey.speedY = 0;
           }
         }
       }
