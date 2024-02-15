@@ -67,11 +67,12 @@ class Donkey extends Sprite {
       this.parent.change();
     } else if (game.keyDownUp) {
       if (this.direction !== "up") {
-        this.setAnim("jump");
         this.flipX = true;
         this.direction = "up";
+        this.jump()
       }
     } else {
+      console.log('over here')
       if (this.direction !== "front") {
         this.setAnim("daiji");
         this.flipX = false;
@@ -102,7 +103,7 @@ class Donkey extends Sprite {
   jump() {
     if (this.speedY !== -1) {
       this.animName = "";
-      this.__jump();
+      this.stateUpdate = this.__jump
     }
   }
   dead() {
