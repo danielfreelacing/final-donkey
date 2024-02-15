@@ -84,6 +84,29 @@ class Donkey extends Sprite {
   /**
    * @private
    */
+  __stop () {
+    const game = this.game;
+    if (this.animName !== "daiji") {
+      this.setAnim("daiji");
+      this.width = 128;
+      this.height = 128;
+      this.speedX = 0;
+      this.speedY = 0;
+      this.acceX = 0;
+      this.acceY = 0;
+      this.y = this.game.viewport.y + 800 - this.height
+      this.flipX = false;
+    }
+    this.__keyControl(true);
+
+    this.parent.change();
+    game.viewportMove();
+  }
+  stop () {
+    this.animName = ""
+    this.stateUpdate = this.__stop;
+  }
+
   __jump() {
     const game = this.game;
     if (this.animName !== "jump") {
@@ -150,27 +173,26 @@ class Donkey extends Sprite {
 
     if (game.keyDownLeft) {
       if (this.direction !== "left") {
-        this.flipX = !!flipX;
+        this.flipX = false;
         this.direction = "left";
       }
-      this.speedX = -0.25;
+      this.speedX = -0.2;
       this.inertia = this.speedX;
       this.__borderCheck();
     } else if (game.keyDownRight) {
       if (this.direction !== "right") {
-        this.flipX = false;
+        this.flipX = !!flipX;
         this.direction = "right";
       }
-      this.speedX = 0.25;
+      this.speedX = 0.2;
       this.inertia = this.speedX;
       this.__borderCheck();
     } else if (game.keyDownUp) {
       if (this.direction !== "up") {
+        this.flipX = true
         this.direction = "up";
-        this.speedY = -1;
+        this.jump()
       }
-      this.inertia = this.speedX;
-      this.__borderCheck();
     } else {
       if (this.inertia < 0) {
         this.inertia += 0.005;

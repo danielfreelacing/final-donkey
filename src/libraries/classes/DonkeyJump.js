@@ -239,34 +239,34 @@ class DonkeyJump extends Game {
         console.log("hello");
       }
     } else if (donkey.animName === "jump") {
-      // if (donkey.y + donkey.height > viewport.y + 800) {
-      //   // donkey.dead();
-      // } else {
-      const stairLayer = this.stairLayer;
-      const stairs = stairLayer.getChilds();
+      if (donkey.y + donkey.height > viewport.y + 800) {
+        donkey.stop();
+      } else {
+        const stairLayer = this.stairLayer;
+        const stairs = stairLayer.getChilds();
 
-      const len = stairs.length;
-      for (let i = 0; i < len; i++) {
-        const stair = stairs[i];
-        if (stair && donkey.hitTest(stair)) {
-          const cloud = new Cloud({
-            x: donkey.x + (donkey.direction === "left" ? 45 : 35),
-            y: stair.y - 16,
-            width: 64,
-            height: 16,
-          });
+        const len = stairs.length;
+        for (let i = 0; i < len; i++) {
+          const stair = stairs[i];
+          if (stair && donkey.hitTest(stair)) {
+            const cloud = new Cloud({
+              x: donkey.x + (donkey.direction === "left" ? 45 : 35),
+              y: stair.y - 16,
+              width: 64,
+              height: 16,
+            });
 
-          cloud.onupdate = cloud.ondestory = () => {
-            this.effectLayer.change();
-          };
-          this.effectLayer.appendChild(cloud);
-          cloud.init();
-          donkey.speedY = 0;
-          donkey.direction = "front";
-          // donkey.jump();
+            cloud.onupdate = cloud.ondestory = () => {
+              this.effectLayer.change();
+            };
+            this.effectLayer.appendChild(cloud);
+            cloud.init();
+            donkey.speedY = 0;
+            donkey.direction = "front";
+            // donkey.jump();
+          }
         }
       }
-      // }
     }
   }
   /**
