@@ -72,7 +72,6 @@ class Donkey extends Sprite {
         this.jump()
       }
     } else {
-      console.log('over here')
       if (this.direction !== "front") {
         this.setAnim("daiji");
         this.flipX = false;

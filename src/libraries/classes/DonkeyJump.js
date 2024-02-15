@@ -261,7 +261,9 @@ class DonkeyJump extends Game {
           };
           this.effectLayer.appendChild(cloud);
           cloud.init();
-          donkey.jump();
+          donkey.speedY = 0;
+          donkey.direction = "front";
+          // donkey.jump();
         }
       }
       // }
